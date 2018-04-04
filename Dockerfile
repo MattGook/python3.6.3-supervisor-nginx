@@ -12,6 +12,7 @@ RUN apt-get update \
 RUN apt-get install -qy python \
   && apt-get install -qy python-pip \
   && pip install --upgrade pip \
+  && pip install supervisor \
   && apt-get install -qy python3.6 \
   && apt-get install -qy python3.6-dev \
   && apt-get install -qy python3-pip \
@@ -19,6 +20,4 @@ RUN apt-get install -qy python \
   && apt-get remove -y python3.5 \
   && apt-get autoremove -y
 
-# 使用 python2 安装 supervisor
-RUN pip install supervisor
 RUN apt-get install -qy nginx
