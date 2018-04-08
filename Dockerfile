@@ -17,5 +17,6 @@ RUN apt-get install -qy python3-pip
 RUN python3.6 -m pip install --upgrade pip setuptools wheel
 RUN apt-get remove -y python3.5
 RUN apt-get autoremove -y
+RUN ln -s /usr/bin/python3.6 /usr/bin/python3
 
 RUN apt-get install -qy nginx
