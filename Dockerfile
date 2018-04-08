@@ -11,14 +11,15 @@ RUN apt-get update \
 # 安装 python2 和 python3
 RUN apt-get install -qy python \
   && apt-get install -qy python-pip \
-  && pip install --upgrade pip \
+  && pip install --upgrade pip setuptools wheel \
+  && pip install supervisor \
   && apt-get install -qy python3.6 \
   && apt-get install -qy python3.6-dev \
   && apt-get install -qy python3-pip \
-  && python3.6 -m pip install --upgrade pip \
+  && python3.6 -m pip install --upgrade pip setuptools wheel \
   && apt-get remove -y python3.5 \
-  && apt-get autoremove -y
+  && apt-get autoremove -y \
+  && ln -s /usr/bin/python3.6 /usr/bin/python3
 
-# 使用 python2 安装 supervisor
-RUN pip install supervisor
+# 安装 Nginx
 RUN apt-get install -qy nginx
