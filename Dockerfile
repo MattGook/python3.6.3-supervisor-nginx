@@ -10,7 +10,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -qy python
 RUN apt-get install -qy python-pip
 RUN pip install --upgrade pip setuptools wheel
-RUN pip install supervisor
+RUN pip install supervisor uwsgi mysqlclient
 RUN apt-get install -qy python3.6
 RUN apt-get install -qy python3.6-dev
 RUN apt-get install -qy python3-pip
